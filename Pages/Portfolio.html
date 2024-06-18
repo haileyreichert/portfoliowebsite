@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Homepage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<style>
+  body {
+  font-family: Times-New-Roman;
+  margin: 0;
+  background: #e0dfdd;
+}
+
+/* Style the header */
+.header {
+  padding: 40px;
+  text-align: center;
+  background: #323647;
+  color: white;
+}
+
+/* Increase the font size of the h1 element */
+.header h1 {
+  font-size: 55px;
+  color: #bbbdbf;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #76829b;
+  text-align: center;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  display: inline-block;
+  color: #323647;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+/* Change color on hover/mouse-over */
+.navbar a:hover {
+  background-color: #97a0af;
+  color: #323647;
+}
+
+/* Highlight the current page link */
+.navbar a.active {
+  background-color: #bbbdc0;
+  color: #323647;
+}
+
+/* Flex container for the columns */
+.container {
+  display: flex;
+  padding: 50px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Left column taking 40% of space */
+.left-column {
+  flex: 40%;
+  padding: 30px;
+  max-width: 400px;
+}
+
+/* Right column taking 60% of space */
+.right-column {
+  flex: 60%;
+  color: #323647;
+  font-size: 28px;
+  padding-bottom: 40px;
+  max-width: 650px;
+}
+
+/* Introduction paragraph inside the right column */
+.right-column p {
+  margin-top: 40px;
+  margin-bottom: 50px;
+  text-indent: 50px;
+}
+
+/* Image inside the left column */
+.left-column img {
+  width: 100%;
+  height: auto;
+  border: 5px solid #323647;
+}
+
+.find-me-container {
+  max-width: 810px;
+  border: 5px solid #323647;
+  padding: 20px;
+  background-color: #76829b;
+  color: #323647;
+  padding-bottom: 15px; /* Add padding to the bottom of the container */
+}
+
+/* "Where to Find Me" text */
+.where-to-find-me {
+  margin-bottom: 30px; /* Add margin below the "Where to Find Me" text */
+}
+
+/* Contact information inside "Where to Find Me" */
+.contact-info {
+  display: flex;
+  flex-direction: row; /* Display items in a row */
+  justify-content: space-between; /* Space items evenly along the row */
+  align-items: center; /* Center items vertically */
+}
+
+/* Contact item (phone or email) */
+.contact-item {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  margin-right: 20px; /* Add margin between items */
+  margin-top: 17px;
+}
+
+.contact-item img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px; /* Add margin between icon and text */
+  margin-top: 0px;
+}
+
+/* Social Media Icons */
+.social-icons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+
+.social-icons a {
+  display: block;
+}
+
+.social-icons img {
+  width: 50px;
+  height: 50px;
+}
+.background-logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/Volumes/Memorex USB/hailey reichert/Personal Development/Personal Logo/Personal Logo - Hailey Reichert.png'); /* Change the path to your logo */
+  background-repeat: no-repeat;
+  background-size: contain; /* Change from 'cover' to 'contain' */
+  background-position: center center;
+  opacity: 15%; /* Adjust the opacity as needed */
+  z-index: -1; /* Ensure the logo is behind other content */
+}
+
+
+
+</style>
+
+<div class="background-logo"></div> <!-- Add this line for the background logo -->
+<div class="header">
+  <h1>FancyCat Designs</h1>
+</div>
+
+<div class="navbar">
+  <a href="Portfolio.html" id="home" class="active">Home</a>
+  <a href="Illustrations.html">Portfolio</a>
+  <a href="services.html">Services</a>
+</div>
+
+<div class="container">
+  <div class="left-column">
+    <img src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Hailey Reichert Picture.PNG" alt="Your Image">
+  </div>
+  <div class="right-column">
+    <h2>Hello! I'm Hailey Reichert!</h2>
+    <p>I'm an 18-year-old freelance illustrator and aspiring graphic designer based in Lehi, Utah. I have loved art ever since I was a kid, but I only started to take it seriously in middle school. I am currently attending Mountainland Technical College under the Digital Design program.</p>
+    <div class="find-me-container">
+      <strong class="where-to-find-me">Where to Find Me:</strong>
+      <div class="contact-info">
+        <div class="contact-item">
+          <img src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Social Media Icons/phone.PNG" alt="Phone Icon">
+          <span>(801) 850-4082</span>
+        </div>
+        <div class="contact-item">
+          <img src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Social Media Icons/gmail.PNG" alt="Email Icon">
+          <span>haileyreichert@gmail.com</span>
+        </div>
+      </div>
+      
+      <!-- Social Media Icons -->
+      <div class="social-icons">
+        <a href=""><img src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Social Media Icons/instagram.PNG" alt="Instagram Icon"></a>
+        <a href=""><img src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Social Media Icons/youtube.PNG" alt="YouTube Icon"></a>
+        <a href=""><img src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Social Media Icons/tiktok.PNG" alt="TikTok Icon"></a>
+        <a href=""><img src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Social Media Icons/twitter.PNG" alt="Twitter Icon"></a>
+        <a href=""><img src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Social Media Icons/linkedin.PNG" alt="LinkedIn Icon"></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

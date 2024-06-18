@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Services</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Times-New-Roman;
+  margin: 0;
+  background: #e0dfdd;
+}
+
+/* Style the header */
+.header {
+  padding: 40px;
+  text-align: center;
+  background: #323647;
+  color: white;
+}
+
+/* Increase the font size of the h1 element */
+.header h1 {
+  font-size: 55px;
+  color: #bbbdbf;
+}
+
+.navbar {
+  overflow: hidden; /* Hide overflow */
+  background-color: #76829b; /* Dark background color */
+  text-align: center; /* Center align the navigation links */
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  display: inline-block; /* Display as block elements */
+  color: #323647; /* Dark text color */
+  text-align: center; /* Center the text */
+  padding: 14px 20px; /* Add some padding */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Change color on hover/mouse-over */
+.navbar a:hover {
+  background-color: #97a0af; /* Change hover background color */
+  color: #323647; /* Black text color */
+}
+
+/* Highlight the current page link */
+.navbar a.active {
+  background-color: #bbbdc0; /* Grey background color */
+  color: #323647; /* Black text color */
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  max-width: 1250px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.left-column {
+  width: calc(40% - 10px);
+  padding: 20px 10px;
+  box-sizing: border-box;
+}
+
+.right-column {
+  width: calc(60% - 10px);
+  padding: 20px 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.right-column .header:first-child {
+  width: 80%; /* Adjust the width of the first header */
+}
+
+.right-column .header:not(:first-child) {
+  margin-top: 20px; /* Adjust the space between headers */
+}
+.right-column .image-gallery {
+  margin-bottom: 20px; /* Adjust the space between image gallery and text blurb */
+}
+
+
+.text-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.text-blurb {
+  color: #323647;
+  font-size: 20px;
+  margin-top: 40px; /* Align the text blurb to the bottom */
+  text-align: center;
+  max-width: 80%;
+}
+
+/* Adjusted CSS styles for 1x3 image grid */
+#images {
+  text-align: center;
+  color: #76829b;
+}
+
+.image-container {
+  width: 100%;
+  display: block;
+  margin-bottom: -5px; /* Add bottom margin */
+  text-align: center;
+  padding: 0; /* Remove padding around each image container */
+  box-sizing: border-box;
+}
+
+/* Set max-width for images in the gallery section */
+.image-container img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  max-width: 600px;
+  object-fit: contain; /* Ensure the entire image is visible without cropping */
+}
+
+/* Enlarged image styles */
+.enlarged-img {
+  width: 500px; /* Initial width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: none; /* Override max-width */
+  transform-origin: center top; /* Ensure scaling happens from the top center */
+  margin-top: 50px; /* Move the enlarged image down by 50px */
+}
+
+.enlarged-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: auto;
+}
+
+.enlarged-container * {
+  color: white; /* Set color to white for all elements inside the enlarged container */
+}
+
+.controls-container {
+  position: absolute;
+  top: 20px; /* Adjusted top position */
+  right: 20px; /* Adjusted right position */
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  margin-top: 15px;
+  margin-right: 20px;
+}
+
+.zoom-button {
+  margin: 5px;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: #323647;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  max-width: 30px;
+  max-height: 30px;
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  position: relative; /* Added position relative */
+  top: 40px; /* Moved 20px down */
+  right: -3px; /* Moved 10px to the right */
+}
+
+.style-text {
+  color: white;
+  font-size: 24px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* New CSS for 4x1 grid */
+.grid-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.grid-item {
+  background-color: #76829b;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  flex: 1;
+  margin: 0 5px;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+.grid-item h3 {
+  margin-top: 0;
+  font-size: 25px; /* Increased by 15px */
+}
+
+.grid-item p {
+  font-size: 20px; /* Increased by 15px */
+}
+
+.grid-item:first-child {
+  margin-left: 0;
+}
+
+.grid-item:last-child {
+  margin-right: 0;
+}
+
+/* Adjusted CSS for image gallery */
+.image-gallery {
+  position: relative;
+  text-align: center; /* Center align the images */
+  max-width: 520px; /* Set maximum width for the gallery */
+  max-height: 520px; /* Set maximum height for the gallery */
+  margin: 0 auto; /* Center align the gallery */
+  overflow: hidden; /* Hide overflow */
+  display: inline-block;
+}
+
+.image-gallery img {
+  width: auto; /* Reset width to auto */
+  height: auto; /* Reset height to auto */
+  max-width: 100%; /* Ensure the image adjusts proportionally */
+  max-height: 100%; /* Ensure the image adjusts proportionally */
+  object-fit: contain; /* Ensure entire image is visible */
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  border-radius: 50%;
+  z-index: 2;
+  width: 15px; /* Increase width for better clickability */
+  height: 15px; /* Increase height for better clickability */
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.header {
+  text-align: center;
+}
+
+.header h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.header p {
+  font-size: 16px;
+  color: #76829b; /* Change the color to #76829b */
+}
+
+.background-logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/Volumes/Memorex USB/hailey reichert/Personal Development/Personal Logo/Personal Logo - Hailey Reichert.png'); /* Change the path to your logo */
+  background-repeat: no-repeat;
+  background-size: contain; /* Change from 'cover' to 'contain' */
+  background-position: center center;
+  opacity: 15%; /* Adjust the opacity as needed */
+  z-index: -1; /* Ensure the logo is behind other content */
+}
+</style>
+</head>
+<body>
+  <div class="background-logo"></div> <!-- Add this line for the background logo -->
+<div class="header">
+  <h1>FancyCat Designs</h1>
+</div>
+
+<div class="navbar">
+  <a href="Portfolio.html" id="home">Home</a>
+  <a href="Illustrations.html">Portfolio</a>
+  <a href="services.html" class="active">Services</a>
+</div>
+
+<!-- New section without columns -->
+<div class="intro-section" style="padding: 20px; text-align: center; background-color: transparent; color:#323647; font-size: 20px">
+  <div style="max-width: 950px; margin: 0 auto;"> <!-- Added container with max-width -->
+    <h2>Welcome to FancyCat Designs</h2>
+    <p style="font-size: 30px; font-weight: bold; color:#323647;">$40/hour</p>
+    <div style="color:#323647; font-size: 20px; max-width: 500px; margin: 0 auto;"> <!-- Added margin: 0 auto; -->
+      <p style="text-align: center; margin-left: auto; margin-right: auto;">Quotes are based off of previous projects and my time estimate.</p> <!-- Added margin-left: auto; margin-right: auto; -->
+      <p style="text-align: center; margin-left: auto; margin-right: auto;">Interested in hiring me? Send me an email with what you are looking for and I will contact you shortly.</p> <!-- Added margin-left: auto; margin-right: auto; -->
+    </div>
+    <p style="font-size: 25px; color:#323647;">haileyreichert@gmail.com</p>
+
+    <h2 style="font-size: 30px; margin-top: 45px; color:#323647;">My Artistic Process</h2>
+    <div class="grid-container">
+      <div class="grid-item">
+        <h3>Sketching</h3>
+        <p>Getting the concept down on paper and figuring out the general composition.</p>
+      </div>
+      <div class="grid-item">
+        <h3>Line Art</h3>
+        <p>Refining the sketch with cleaner lines, making details more prominent.</p>
+      </div>
+      <div class="grid-item">
+        <h3>Color and Shading</h3>
+        <p>Adding color to the illustration or design. Shading is also added based on the project.</p>
+      </div>
+      <div class="grid-item">
+        <h3>Refining</h3>
+        <p>Fixing minor errors and focusing on small details. Any rendering is done during this stage.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="columns">
+  <!-- Left column with 1x3 image grid -->
+  <div class="left-column">
+    <div id="images">
+      <div class="image-container">
+        <a href="#" onclick="enlargeImage('/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Portfolio Items/Size charts/rendered full.PNG', 'Complex Shading Style', 'This style consists of clean re-colored lines, neat coloring, and painting-style shading.')">
+          <img src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Portfolio Items/Size charts/top stack.PNG" alt="Complex Shading Style Example">
+        </a>
+      </div>
+      <div class="image-container">
+        <a href="#" onclick="enlargeImage('/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Portfolio Items/Size charts/flat full.PNG', 'Simple Shading Style', 'This style consists of clean lines, neat coloring, and simple cel shading. Shading and highlights consist of one color each.')">
+          <img src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Portfolio Items/Size charts/middle stack.PNG" alt="Simple Shading Style Example">
+        </a>
+      </div>
+      <div class="image-container">
+        <a href="#" onclick="enlargeImage('/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Portfolio Items/Size charts/sketch full.PNG', 'Sketchy Style', 'This is my more messy style option. Consists of the refined original sketch and sketchy coloring. Light cel shading upon request.')">
+          <img src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Portfolio Items/Size charts/bottom stack.PNG" alt="Sketchy Style Example">
+        </a>
+      </div>
+    </div>
+  </div>
+<!-- Right column content -->
+<div class="right-column">
+  <div class="header">
+    <h2>Illustrations, Graphic Design, Motion Graphics</h2>
+    <p>Digital Drawings, Event Posters, Logos, Animation, Video Editing</p>
+  </div>
+  <div class="header" style="color: #323647; background-color: transparent; text-decoration: underline; margin-bottom: -30px;">
+    <h2>Previous Projects</h2>
+  </div>
+  <div class="image-gallery">
+    <img id="gallery-image" src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Portfolio Items/Cropping Photos/kaelis.png" alt="Gallery Image">
+    <span class="prev" onclick="prevImage()">&#10094;</span>
+    <span class="next" onclick="nextImage()">&#10095;</span>
+  </div>
+  <!-- Text blurb wrapped in a container -->
+  <div class="text-container">
+    <div class="text-blurb">
+      <p>The image on the left is interactive! Click on the different sections for a closer look and description of what they are.</p>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Java Script/servicesgallery.js"></script>
+<script src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Java Script/sizechart.js"></script>
+
+</body>
+</html>

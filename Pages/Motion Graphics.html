@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Motion Grpahics</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Times-New-Roman;
+  margin: 0;
+  background: #e0dfdd;
+}
+
+/* Style the header */
+.header {
+  padding: 40px;
+  text-align: center;
+  background: #323647;
+  color: white;
+}
+
+/* Increase the font size of the h1 element */
+.header h1 {
+  font-size: 55px;
+  color: #bbbdbf;
+}
+
+.navbar {
+  overflow: hidden; /* Hide overflow */
+  background-color: #76829b; /* Dark background color */
+  text-align: center; /* Center align the navigation links */
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  display: inline-block; /* Display as block elements */
+  color: #323647; /* Dark text color */
+  text-align: center; /* Center the text */
+  padding: 14px 20px; /* Add some padding */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Change color on hover/mouse-over */
+.navbar a:hover {
+  background-color: #97a0af; /* Change hover background color */
+  color: #323647; /* Black text color */
+}
+
+/* Highlight the current page link */
+.navbar a.active {
+  background-color: #bbbdc0; /* Grey background color */
+  color: #323647; /* Black text color */
+}
+/* Style the smaller navigation bar */
+.sub-navbar {
+  overflow: hidden;
+  background-color: #97a0af;
+  text-align: center;
+  margin-top: 40px;
+  max-width: 600px; /* Set maximum width */
+  margin-left: auto; /* Center the sub-navbar */
+  margin-right: auto; /* Center the sub-navbar */
+  border-radius: 10px; /* Add rounded corners */
+}
+
+/* Style the sub-navbar links */
+.sub-navbar a {
+  display: inline-block;
+  color: #323647;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover/mouse-over for sub-navbar */
+.sub-navbar a:hover {
+  background-color: #76829b;
+  color: white;
+}
+
+/* Adjusted CSS styles for 3x2 grid */
+#images {
+    text-align: center; /* Center-align text within the section */
+    margin-top: 40px;
+    color: #76829b; /* Change text color to #76829b */
+} 
+.image-container {
+    width: calc(33.33% - 40px); /* Each image container takes up one-third of the available width */
+    display: inline-block; /* Display image containers in a line */
+    margin-bottom: 20px; /* Add 50px of space between image containers */
+    vertical-align: top; /* Align image containers to the top */
+    text-align: center; /* Center-align text within image containers */
+    padding: 20px; /* Add padding around each image container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+/* Set max-width for images in the gallery section */
+.image-container img {
+width: 100%; /* Set image width to 100% of its container */
+height: 100%; /* Set image height to 100% of its container */
+max-width: 600px; /* Set maximum width for the images */
+max-height: 600px; /* Set maximum height for the images */
+object-fit: cover; /* Crop the image to fit its container without distortion */
+}
+/* Adjust margin for the last image container in each row */
+.image-container:nth-child(3n) {
+    margin-right: 0; /* Remove margin from the last image container in each row */
+}
+/* Adjust margin for the last row if it contains less than 3 images */
+.image-container:nth-last-child(-n+3) {
+    margin-bottom: 0; /* Remove bottom margin from the last row */
+}
+.button-container {
+  text-align: center; /* Center-align the button container */
+  margin-top: 20px; /* Add some space above the button */
+  margin-bottom: 45px;
+}
+
+/* Style the call-to-action button */
+.cta-button {
+  background-color: #76829b; /* Button background color */
+  color: #ffffff; /* Button text color */
+  border: none; /* Remove border */
+  padding: 15px 30px; /* Add padding */
+  text-align: center; /* Center-align text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Display as inline-block */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+/* Style the button container */
+.button-container {
+  text-align: center; /* Center-align the button container */
+  margin-top: 20px; /* Add some space above the button */
+}
+
+/* Style the call-to-action button */
+.cta-button {
+  background-color: #76829b; /* Button background color */
+  color: #ffffff; /* Button text color */
+  border: none; /* Remove border */
+  padding: 15px 30px; /* Add padding */
+  text-align: center; /* Center-align text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Display as inline-block */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+  font-family: "Times New Roman", Times, serif; /* Apply Times New Roman font */
+}
+
+/* Change button background color on hover */
+.cta-button:hover {
+  background-color: #97a0af; /* Hover background color */
+}
+
+/* Style the arrow in the button */
+.cta-button::after {
+  content: '→'; /* Arrow character */
+  margin-left: 5px; /* Space between text and arrow */
+}
+.background-logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/Volumes/Memorex USB/hailey reichert/Personal Development/Personal Logo/Personal Logo - Hailey Reichert.png'); /* Change the path to your logo */
+  background-repeat: no-repeat;
+  background-size: contain; /* Change from 'cover' to 'contain' */
+  background-position: center center;
+  opacity: 15%; /* Adjust the opacity as needed */
+  z-index: -1; /* Ensure the logo is behind other content */
+}
+</style>
+</head>
+<body>
+  <div class="background-logo"></div> <!-- Add this line for the background logo -->
+<div class="header">
+  <h1>FancyCat Designs</h1>
+</div>
+
+<div class="navbar">
+    <a href="Portfolio.html" id="home">Home</a>
+    <a href="Illustrations.html" class="active">Portfolio</a>
+    <a href="services.html">Services</a>
+  </div>
+  
+  <!-- Sub Navigation Bar -->
+  <div class="sub-navbar">
+    <a href="Illustrations.html">Illustration</a>
+    <a href="Graphic Design.html">Graphic Design</a>
+    <a href="Motion Graphics.html">Motion Graphics</a>
+  </div>
+
+<section id="images"> 
+    <p><span style="color: #323647;">Pst!</span> Click on the images to view the full videos!</p>
+    <p><span style="color: #323647;">Warning:</span> Some videos have audio, please be mindful of your device's volume before clicking.</p>
+    <div class="image-container">
+        <a href="#" onclick="enlargeImage('/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Portfolio Items/Full Images/there is life gif.GIF')">
+            <img src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Portfolio Items/Full Images/there is life gif.GIF" alt="Image 1">
+        </a>
+    </div>
+    <div class="image-container">
+        <a href="#" onclick="enlargeImage('/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Portfolio Items/Full Images/Nixx.GIF')">
+            <img src="/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Portfolio Items/Full Images/Nixx.GIF" alt="Image 2">
+        </a>
+    </div>
+    <div class="image-container">
+        <a href="#" onclick="enlargeImage('/Volumes/Memorex USB/hailey reichert/Motion Graphics/Animated Character/Animated Character.gif')">
+            <img src="/Volumes/Memorex USB/hailey reichert/Motion Graphics/Animated Character/Animated Character.gif" alt="Image 3">
+        </a>
+    </div>
+    <div class="image-container">
+        <a href="#" onclick="enlargeImage('/Volumes/Memorex USB/hailey reichert/Motion Graphics/Animated Logo/Animated Logo (1).gif')">
+            <img src="/Volumes/Memorex USB/hailey reichert/Motion Graphics/Animated Logo/Animated Logo (1).gif" alt="Image 4">
+        </a>
+    </div>
+    <div class="image-container">
+        <a href="#" onclick="enlargeImage('/Volumes/Memorex USB/hailey reichert/Motion Graphics/Explanation Video/Video.gif')">
+            <img src="/Volumes/Memorex USB/hailey reichert/Motion Graphics/Explanation Video/Video.gif" alt="Image 5">
+        </a>
+    </div>
+    <div class="image-container">
+        <a href="#" onclick="enlargeImage('/Volumes/Memorex USB/hailey reichert/Motion Graphics/Video Ads/5 Seconds/Ad - 5 Secs copy.gif')">
+            <img src="/Volumes/Memorex USB/hailey reichert/Motion Graphics/Video Ads/5 Seconds/Ad - 5 Secs copy.gif" alt="Image 6">
+        </a>
+    </div>
+</section>
+<div class="button-container">
+    <a href="services.html">
+      <button class="cta-button">
+        Interested in getting your own?
+      </button>
+    </a>
+  </div>
+<script>
+    // Function to enlarge image or replace with video
+    function enlargeImage(imageSrc) {
+        if (imageSrc.endsWith('there is life gif.GIF')) {
+            // Create a new video element for the enlarged version
+            const enlargedVideo = document.createElement('video');
+            enlargedVideo.src = '/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Portfolio Items/Videos/there is life.MP4'; // Update with your video source
+            enlargedVideo.controls = true;
+            enlargedVideo.autoplay = true;
+            enlargedVideo.loop = true;
+            enlargedVideo.classList.add('enlarged-video');
+
+            // Create a div to hold the enlarged video
+            const enlargedContainer = document.createElement('div');
+            enlargedContainer.classList.add('enlarged-container');
+
+            // Add enlarged video to the container
+            enlargedContainer.appendChild(enlargedVideo);
+
+            // Create a close button
+            const closeButton = document.createElement('span');
+            closeButton.innerHTML = '&times;';
+            closeButton.classList.add('close-btn');
+            closeButton.addEventListener('click', () => {
+                enlargedContainer.remove();
+            });
+
+            // Append the close button to the enlarged container
+            enlargedContainer.appendChild(closeButton);
+
+            // Append the enlarged container to the body
+            document.body.appendChild(enlargedContainer);
+
+            // Center the enlarged container
+            enlargedContainer.style.display = 'flex';
+            enlargedContainer.style.justifyContent = 'center';
+            enlargedContainer.style.alignItems = 'center';
+            enlargedContainer.style.position = 'fixed';
+            enlargedContainer.style.top = '0';
+            enlargedContainer.style.left = '0';
+            enlargedContainer.style.width = '100%';
+            enlargedContainer.style.height = '100%';
+            enlargedContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+
+            // Apply margin to the enlarged video
+            enlargedVideo.style.margin = '100px';
+            enlargedVideo.style.maxWidth = 'calc(100% - 200px)';
+            enlargedVideo.style.maxHeight = 'calc(100% - 200px)';
+
+            // Position the close button in the top right corner
+            closeButton.style.position = 'absolute';
+            closeButton.style.top = '10px';
+            closeButton.style.right = '10px';
+            closeButton.style.fontSize = '24px';
+            closeButton.style.cursor = 'pointer';
+            closeButton.style.color = 'white';
+        } else if (imageSrc.endsWith('Nixx.GIF')) {
+            // Create a new video element for the enlarged version
+            const enlargedVideo = document.createElement('video');
+            enlargedVideo.src = '/Volumes/Memorex USB/hailey reichert/Personal Development/Portfolio Website/Photos/Portfolio Items/Videos/Talk About You 2.mp4'; // Update with your second video source
+            enlargedVideo.controls = true;
+            enlargedVideo.autoplay = true;
+            enlargedVideo.loop = true;
+            enlargedVideo.classList.add('enlarged-video');
+
+            // Create a div to hold the enlarged video
+            const enlargedContainer = document.createElement('div');
+            enlargedContainer.classList.add('enlarged-container');
+
+            // Add enlarged video to the container
+            enlargedContainer.appendChild(enlargedVideo);
+
+            // Create a close button
+            const closeButton = document.createElement('span');
+            closeButton.innerHTML = '&times;';
+            closeButton.classList.add('close-btn');
+            closeButton.addEventListener('click', () => {
+                enlargedContainer.remove();
+            });
+
+            // Append the close button to the enlarged container
+            enlargedContainer.appendChild(closeButton);
+
+            // Append the enlarged container to the body
+            document.body.appendChild(enlargedContainer);
+
+            // Center the enlarged container
+            enlargedContainer.style.display = 'flex';
+            enlargedContainer.style.justifyContent = 'center';
+            enlargedContainer.style.alignItems = 'center';
+            enlargedContainer.style.position = 'fixed';
+            enlargedContainer.style.top = '0';
+            enlargedContainer.style.left = '0';
+            enlargedContainer.style.width = '100%';
+            enlargedContainer.style.height = '100%';
+            enlargedContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+
+            // Apply margin to the enlarged video
+            enlargedVideo.style.margin = '100px';
+            enlargedVideo.style.maxWidth = 'calc(100% - 200px)';
+            enlargedVideo.style.maxHeight = 'calc(100% - 200px)';
+
+            // Position the close button in the top right corner
+            closeButton.style.position = 'absolute';
+            closeButton.style.top = '10px';
+            closeButton.style.right = '10px';
+            closeButton.style.fontSize = '24px';
+            closeButton.style.cursor = 'pointer';
+            closeButton.style.color = 'white';
+        } else if (imageSrc.endsWith('/Volumes/Memorex USB/hailey reichert/Motion Graphics/Animated Character/Animated Character.gif')) {
+            // Create a new video element for the enlarged version
+            const enlargedVideo = document.createElement('video');
+            enlargedVideo.src = '/Volumes/Memorex USB/hailey reichert/Motion Graphics/Animated Character/Animated Character.mp4'; // Update with your video source
+            enlargedVideo.controls = true;
+            enlargedVideo.autoplay = true;
+            enlargedVideo.loop = true;
+            enlargedVideo.classList.add('enlarged-video');
+
+            // Create a div to hold the enlarged video
+            const enlargedContainer = document.createElement('div');
+            enlargedContainer.classList.add('enlarged-container');
+
+            // Add enlarged video to the container
+            enlargedContainer.appendChild(enlargedVideo);
+
+            // Create a close button
+            const closeButton = document.createElement('span');
+            closeButton.innerHTML = '&times;';
+            closeButton.classList.add('close-btn');
+            closeButton.addEventListener('click', () => {
+                enlargedContainer.remove();
+            });
+
+            // Append the close button to the enlarged container
+            enlargedContainer.appendChild(closeButton);
+
+            // Append the enlarged container to the body
+            document.body.appendChild(enlargedContainer);
+
+            // Center the enlarged container
+            enlargedContainer.style.display = 'flex';
+            enlargedContainer.style.justifyContent = 'center';
+            enlargedContainer.style.alignItems = 'center';
+            enlargedContainer.style.position = 'fixed';
+            enlargedContainer.style.top = '0';
+            enlargedContainer.style.left = '0';
+            enlargedContainer.style.width = '100%';
+            enlargedContainer.style.height = '100%';
+            enlargedContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+
+            // Apply margin to the enlarged video
+            enlargedVideo.style.margin = '100px';
+            enlargedVideo.style.maxWidth = 'calc(100% - 200px)';
+            enlargedVideo.style.maxHeight = 'calc(100% - 200px)';
+
+            // Position the close button in the top right corner
+            closeButton.style.position = 'absolute';
+            closeButton.style.top = '10px';
+            closeButton.style.right = '10px';
+            closeButton.style.fontSize = '24px';
+            closeButton.style.cursor = 'pointer';
+            closeButton.style.color = 'white';
+        } else if (imageSrc.endsWith('/Volumes/Memorex USB/hailey reichert/Motion Graphics/Animated Logo/Animated Logo (1).gif')) {
+            // Create a new video element for the enlarged version
+            const enlargedVideo = document.createElement('video');
+            enlargedVideo.src = '/Volumes/Memorex USB/hailey reichert/Motion Graphics/Animated Logo/Animated Logo.mp4'; // Update with your video source
+            enlargedVideo.controls = true;
+            enlargedVideo.autoplay = true;
+            enlargedVideo.loop = true;
+            enlargedVideo.classList.add('enlarged-video');
+
+            // Create a div to hold the enlarged video
+            const enlargedContainer = document.createElement('div');
+            enlargedContainer.classList.add('enlarged-container');
+
+            // Add enlarged video to the container
+            enlargedContainer.appendChild(enlargedVideo);
+
+            // Create a close button
+            const closeButton = document.createElement('span');
+            closeButton.innerHTML = '&times;';
+            closeButton.classList.add('close-btn');
+            closeButton.addEventListener('click', () => {
+                enlargedContainer.remove();
+            });
+
+            // Append the close button to the enlarged container
+            enlargedContainer.appendChild(closeButton);
+
+            // Append the enlarged container to the body
+            document.body.appendChild(enlargedContainer);
+
+            // Center the enlarged container
+            enlargedContainer.style.display = 'flex';
+            enlargedContainer.style.justifyContent = 'center';
+            enlargedContainer.style.alignItems = 'center';
+            enlargedContainer.style.position = 'fixed';
+            enlargedContainer.style.top = '0';
+            enlargedContainer.style.left = '0';
+            enlargedContainer.style.width = '100%';
+            enlargedContainer.style.height = '100%';
+            enlargedContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+
+            // Apply margin to the enlarged video
+            enlargedVideo.style.margin = '100px';
+            enlargedVideo.style.maxWidth = 'calc(100% - 200px)';
+            enlargedVideo.style.maxHeight = 'calc(100% - 200px)';
+
+            // Position the close button in the top right corner
+            closeButton.style.position = 'absolute';
+            closeButton.style.top = '10px';
+            closeButton.style.right = '10px';
+            closeButton.style.fontSize = '24px';
+            closeButton.style.cursor = 'pointer';
+            closeButton.style.color = 'white';
+        } else if (imageSrc.endsWith('/Volumes/Memorex USB/hailey reichert/Motion Graphics/Explanation Video/Video.gif')) {
+            // Create a new video element for the enlarged version
+            const enlargedVideo = document.createElement('video');
+            enlargedVideo.src = '/Volumes/Memorex USB/hailey reichert/Motion Graphics/Explanation Video/Video.mp4'; // Update with your video source
+            enlargedVideo.controls = true;
+            enlargedVideo.autoplay = true;
+            enlargedVideo.loop = true;
+            enlargedVideo.classList.add('enlarged-video');
+
+            // Create a div to hold the enlarged video
+            const enlargedContainer = document.createElement('div');
+            enlargedContainer.classList.add('enlarged-container');
+
+            // Add enlarged video to the container
+            enlargedContainer.appendChild(enlargedVideo);
+
+            // Create a close button
+            const closeButton = document.createElement('span');
+            closeButton.innerHTML = '&times;';
+            closeButton.classList.add('close-btn');
+            closeButton.addEventListener('click', () => {
+                enlargedContainer.remove();
+            });
+
+            // Append the close button to the enlarged container
+            enlargedContainer.appendChild(closeButton);
+
+            // Append the enlarged container to the body
+            document.body.appendChild(enlargedContainer);
+
+            // Center the enlarged container
+            enlargedContainer.style.display = 'flex';
+            enlargedContainer.style.justifyContent = 'center';
+            enlargedContainer.style.alignItems = 'center';
+            enlargedContainer.style.position = 'fixed';
+            enlargedContainer.style.top = '0';
+            enlargedContainer.style.left = '0';
+            enlargedContainer.style.width = '100%';
+            enlargedContainer.style.height = '100%';
+            enlargedContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+
+            // Apply margin to the enlarged video
+            enlargedVideo.style.margin = '100px';
+            enlargedVideo.style.maxWidth = 'calc(100% - 200px)';
+            enlargedVideo.style.maxHeight = 'calc(100% - 200px)';
+
+            // Position the close button in the top right corner
+            closeButton.style.position = 'absolute';
+            closeButton.style.top = '10px';
+            closeButton.style.right = '10px';
+            closeButton.style.fontSize = '24px';
+            closeButton.style.cursor = 'pointer';
+            closeButton.style.color = 'white';
+        } else if (imageSrc.endsWith('/Volumes/Memorex USB/hailey reichert/Motion Graphics/Video Ads/5 Seconds/Ad - 5 Secs copy.gif')) {
+            // Create a new video element for the enlarged version
+            const enlargedVideo = document.createElement('video');
+            enlargedVideo.src = '/Volumes/Memorex USB/hailey reichert/Motion Graphics/Video Ads/5 Seconds/Ad - 5 Secs copy.mp4'; // Update with your video source
+            enlargedVideo.controls = true;
+            enlargedVideo.autoplay = true;
+            enlargedVideo.loop = true;
+            enlargedVideo.classList.add('enlarged-video');
+
+            // Create a div to hold the enlarged video
+            const enlargedContainer = document.createElement('div');
+            enlargedContainer.classList.add('enlarged-container');
+
+            // Add enlarged video to the container
+            enlargedContainer.appendChild(enlargedVideo);
+
+            // Create a close button
+            const closeButton = document.createElement('span');
+            closeButton.innerHTML = '&times;';
+            closeButton.classList.add('close-btn');
+            closeButton.addEventListener('click', () => {
+                enlargedContainer.remove();
+            });
+
+            // Append the close button to the enlarged container
+            enlargedContainer.appendChild(closeButton);
+
+            // Append the enlarged container to the body
+            document.body.appendChild(enlargedContainer);
+
+            // Center the enlarged container
+            enlargedContainer.style.display = 'flex';
+            enlargedContainer.style.justifyContent = 'center';
+            enlargedContainer.style.alignItems = 'center';
+            enlargedContainer.style.position = 'fixed';
+            enlargedContainer.style.top = '0';
+            enlargedContainer.style.left = '0';
+            enlargedContainer.style.width = '100%';
+            enlargedContainer.style.height = '100%';
+            enlargedContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+
+            // Apply margin to the enlarged video
+            enlargedVideo.style.margin = '100px';
+            enlargedVideo.style.maxWidth = 'calc(100% - 200px)';
+            enlargedVideo.style.maxHeight = 'calc(100% - 200px)';
+
+            // Position the close button in the top right corner
+            closeButton.style.position = 'absolute';
+            closeButton.style.top = '10px';
+            closeButton.style.right = '10px';
+            closeButton.style.fontSize = '24px';
+            closeButton.style.cursor = 'pointer';
+            closeButton.style.color = 'white';
+        } else {
+            // Create a new image element for the enlarged version
+            const enlargedImg = document.createElement('img');
+            enlargedImg.src = imageSrc;
+            enlargedImg.alt = 'Enlarged Image';
+            enlargedImg.classList.add('enlarged-img');
+
+            // Create a div to hold the enlarged image
+            const enlargedContainer = document.createElement('div');
+            enlargedContainer.classList.add('enlarged-container');
+
+            // Add enlarged image to the container
+            enlargedContainer.appendChild(enlargedImg);
+
+            // Create a close button
+            const closeButton = document.createElement('span');
+            closeButton.innerHTML = '&times;';
+            closeButton.classList.add('close-btn');
+            closeButton.addEventListener('click', () => {
+                enlargedContainer.remove();
+            });
+
+            // Append the close button to the enlarged container
+            enlargedContainer.appendChild(closeButton);
+
+            // Append the enlarged container to the body
+            document.body.appendChild(enlargedContainer);
+
+            // Center the enlarged container
+            enlargedContainer.style.display = 'flex';
+            enlargedContainer.style.justifyContent = 'center';
+            enlargedContainer.style.alignItems = 'center';
+            enlargedContainer.style.position = 'fixed';
+            enlargedContainer.style.top = '0';
+            enlargedContainer.style.left = '0';
+            enlargedContainer.style.width = '100%';
+            enlargedContainer.style.height = '100%';
+            enlargedContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+
+            // Apply margin to the enlarged image
+            enlargedImg.style.margin = '100px';
+            enlargedImg.style.maxWidth = 'calc(100% - 200px)';
+            enlargedImg.style.maxHeight = 'calc(100% - 200px)';
+
+            // Position the close button in the top right corner
+            closeButton.style.position = 'absolute';
+            closeButton.style.top = '10px';
+            closeButton.style.right = '10px';
+            closeButton.style.fontSize = '24px';
+            closeButton.style.cursor = 'pointer';
+            closeButton.style.color = 'white';
+        }
+    }
+</script>
+
+
+</body>
+</html>
